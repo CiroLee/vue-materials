@@ -1,0 +1,209 @@
+<template>
+  <div class="calendar">
+    <div class="calendar-operate">
+      <div class="button-group">
+        <button class="button">
+          <i class="icon ri-arrow-left-s-line" @click="prevMonth"></i>
+        </button>
+        <button class="button">
+          <i class="icon ri-arrow-right-s-line" @click="nextMonth"></i>
+        </button>
+      </div>
+      <div class="calendar-operate--block">{{ dateText }}</div>
+      <button class="button" :disabled="date.getTime() === new Date().getTime()" @click="currentDate">今天</button>
+    </div>
+    <div class="calendar-header">
+      <span
+        v-for="(item, index) in weekMapZh"
+        :key="index"
+        class="calendar-header__item"
+        :class="{ gray: index === 0 || index === 6 }"
+        >{{ item }}</span
+      >
+    </div>
+    <div class="calendar-content" :data-month="date.getMonth() + 1">
+      <div
+        v-for="(item, index) in calendarTable"
+        :key="index"
+        class="calendar-content__item"
+        :class="[{ light: !item.isCurrentMonth }, { active: isActive(item) }]"
+      >
+        {{ item.day }}
+      </div>
+    </div>
+  </div>
+</template>
+<script lang="ts" setup>
+import { ref, computed } from 'vue';
+import { weekMapZh, generateCalendar } from './calendar';
+import { isAllTrue } from '@/utils/common';
+import { CalendarItem } from './calendar';
+
+const date = ref<Date>(new Date());
+const calendarTable = computed(() => generateCalendar(date.value));
+const dateText = computed(() => {
+  return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
+});
+/**
+ * 当天日期高亮显示, 兼容切换日期：
+ * 年月日都要对上才能高亮
+ * ps: 日历可能会显示下月/上月的同样日期， 仅当月日期高亮
+ */
+const isActive = (item: CalendarItem) => {
+  return isAllTrue([
+    item.day === date.value.getDate(),
+    item.isCurrentMonth,
+    item.month === new Date().getMonth() + 1,
+    item.year === new Date().getFullYear(),
+  ]);
+};
+const prevMonth = () => {
+  const month = date.value.getMonth() === 0 ? 11 : date.value.getMonth() - 1;
+  const year = month === 11 ? date.value.getFullYear() - 1 : date.value.getFullYear();
+  date.value.setMonth(month);
+  date.value.setFullYear(year);
+  date.value = new Date(date.value);
+};
+
+const nextMonth = () => {
+  const month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
+  const year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
+
+  date.value.setMonth(month);
+  date.value.setFullYear(year);
+  date.value = new Date(date.value);
+};
+
+const currentDate = () => {
+  date.value = new Date();
+};
+</script>
+<style lang="scss" scoped>
+$gap: 8px;
+$sub-active-color: #dbf0ff;
+$active-color: #0065ff;
+$gray: #979797;
+// simple button
+.button {
+  height: 28px;
+  font-size: 12px;
+  background: #fff;
+  padding: 0 16px;
+  border: 1px solid rgba($gray, 0.4);
+  border-radius: 14px;
+  cursor: pointer;
+  &:hover {
+    color: $active-color;
+  }
+  &:active {
+    background-color: rgba(0 0 0 / 6%);
+  }
+  &:disabled {
+    color: $gray;
+    background-color: rgba(0 0 0 / 6.5%);
+    cursor: not-allowed;
+  }
+}
+.button-group {
+  .button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
+  }
+  .button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    border-left: 0;
+  }
+}
+.icon {
+  height: 100%;
+  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+.calendar--flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar-operate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba($gray, 0.15);
+  font-size: 18px;
+  position: relative;
+  &__date {
+    margin: 0 24px;
+  }
+}
+.calendar-header {
+  margin-top: 6px;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  &__item {
+    flex: 1;
+    text-align: right;
+    border-radius: 1px;
+    &.gray {
+      color: $gray;
+      font-weight: normal;
+    }
+  }
+}
+.calendar-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  position: relative;
+  color: #333;
+  &::after {
+    content: attr(data-month);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10em;
+    z-index: -1;
+    font-weight: bold;
+    color: rgba($gray, 0.1);
+  }
+  &__item {
+    height: 6em;
+    flex: calc(14.2% - $gap);
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    text-align: right;
+    padding: 10px 0;
+    margin-right: $gap;
+    &:nth-child(7n),
+    &:nth-child(7n-6) {
+      color: $gray;
+    }
+    &:nth-child(7n) {
+      margin-right: 0;
+    }
+    &.active {
+      color: $active-color;
+      font-weight: bold;
+      border-bottom: 2px solid $active-color;
+    }
+    &:hover {
+      background-color: rgba($sub-active-color, 0.4);
+      cursor: pointer;
+    }
+    &.light {
+      color: rgba($gray, 0.4);
+      cursor: not-allowed;
+    }
+  }
+}
+</style>
