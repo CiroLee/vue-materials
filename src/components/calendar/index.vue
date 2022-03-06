@@ -2,11 +2,11 @@
   <div class="calendar">
     <div class="calendar-operate">
       <div class="button-group">
-        <button class="button">
-          <i class="icon ri-arrow-left-s-line" @click="changeMonth('prev')"></i>
+        <button class="button" @click="changeMonth('prev')">
+          <i class="icon ri-arrow-left-s-line"></i>
         </button>
-        <button class="button">
-          <i class="icon ri-arrow-right-s-line" @click="changeMonth('next')"></i>
+        <button class="button" @click="changeMonth('next')">
+          <i class="icon ri-arrow-right-s-line"></i>
         </button>
       </div>
       <div class="calendar-operate--block">{{ dateText }}</div>
@@ -63,7 +63,7 @@ const isActive = (item: CalendarItem) => {
   return isAllTrue([
     item.day === date.value.getDate(),
     item.isCurrentMonth,
-    item.month === new Date().getMonth() + 1,
+    item.month === new Date().getMonth(),
     item.year === new Date().getFullYear(),
   ]);
 };
