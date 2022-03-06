@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="calendar-operate--block">{{ dateText }}</div>
-      <button class="button" :disabled="date.getTime() === new Date().getTime()" @click="currentDate">今天</button>
+      <button class="button" :disabled="isToday" @click="currentDate">今天</button>
     </div>
     <div class="calendar-header">
       <span
@@ -43,6 +43,16 @@ const date = ref<Date>(new Date());
 const calendarTable = computed(() => generateCalendar(date.value));
 const dateText = computed(() => {
   return `${date.value.getFullYear()}/${date.value.getMonth() + 1}`;
+});
+
+const isToday = computed(() => {
+  const current = new Date();
+  const validArr = [
+    date.value.getFullYear() === current.getFullYear(),
+    date.value.getMonth() === current.getMonth(),
+    date.value.getDay() === current.getDay(),
+  ];
+  return isAllTrue(validArr);
 });
 /**
  * 当天日期高亮显示, 兼容切换日期：
@@ -83,7 +93,7 @@ $gap: 8px;
 $sub-active-color: #dbf0ff;
 $active-color: #0065ff;
 $gray: #979797;
-// simple button
+
 .button {
   height: 28px;
   font-size: 12px;
@@ -96,14 +106,15 @@ $gray: #979797;
     color: $active-color;
   }
   &:active {
-    background-color: rgba(0 0 0 / 6%);
+    background-color: rgba(0, 0, 0, 6%);
   }
   &:disabled {
     color: $gray;
-    background-color: rgba(0 0 0 / 6.5%);
+    background-color: rgba(0, 0, 0, 6.5%);
     cursor: not-allowed;
   }
 }
+
 .button-group {
   .button:first-child {
     border-top-right-radius: 0;
@@ -119,17 +130,20 @@ $gray: #979797;
     border-left: 0;
   }
 }
+
 .icon {
   height: 100%;
   font-size: 24px;
   display: inline-flex;
   align-items: center;
 }
+
 .calendar--flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .calendar-operate {
   display: flex;
   align-items: center;
@@ -142,6 +156,7 @@ $gray: #979797;
     margin: 0 24px;
   }
 }
+
 .calendar-header {
   margin-top: 6px;
   padding: 8px 0;
@@ -158,6 +173,7 @@ $gray: #979797;
     }
   }
 }
+
 .calendar-content {
   display: flex;
   flex-wrap: wrap;
