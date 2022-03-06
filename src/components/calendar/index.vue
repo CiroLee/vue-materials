@@ -9,7 +9,7 @@
           <i class="icon ri-arrow-right-s-line"></i>
         </button>
       </div>
-      <div class="calendar-operate--block">{{ dateText }}</div>
+      <div class="calendar-operate__title">{{ dateText }}</div>
       <button class="button" :disabled="isToday" @click="currentDate">今天</button>
     </div>
     <div class="calendar-header">
@@ -138,12 +138,6 @@ $gray: #979797;
   align-items: center;
 }
 
-.calendar--flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .calendar-operate {
   display: flex;
   align-items: center;
@@ -152,8 +146,12 @@ $gray: #979797;
   border-bottom: 1px solid rgba($gray, 0.15);
   font-size: 18px;
   position: relative;
-  &__date {
-    margin: 0 24px;
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 0 8px;
   }
 }
 
