@@ -3,10 +3,10 @@
     <div class="calendar-operate">
       <div class="button-group">
         <button class="button">
-          <i class="icon ri-arrow-left-s-line" @click="prevMonth"></i>
+          <i class="icon ri-arrow-left-s-line" @click="changeMonth('prev')"></i>
         </button>
         <button class="button">
-          <i class="icon ri-arrow-right-s-line" @click="nextMonth"></i>
+          <i class="icon ri-arrow-right-s-line" @click="changeMonth('next')"></i>
         </button>
       </div>
       <div class="calendar-operate--block">{{ dateText }}</div>
@@ -57,25 +57,25 @@ const isActive = (item: CalendarItem) => {
     item.year === new Date().getFullYear(),
   ]);
 };
-const prevMonth = () => {
-  const month = date.value.getMonth() === 0 ? 11 : date.value.getMonth() - 1;
-  const year = month === 11 ? date.value.getFullYear() - 1 : date.value.getFullYear();
-  date.value.setMonth(month);
-  date.value.setFullYear(year);
-  date.value = new Date(date.value);
-};
-
-const nextMonth = () => {
-  const month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
-  const year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
-
-  date.value.setMonth(month);
-  date.value.setFullYear(year);
-  date.value = new Date(date.value);
-};
-
+// 切换到今天
 const currentDate = () => {
   date.value = new Date();
+};
+// 切换月份, 上个月 or 下个月
+const changeMonth = (type: 'prev' | 'next'): void => {
+  let month = 0;
+  let year = 1970;
+  if (type === 'prev') {
+    month = date.value.getMonth() === 0 ? 11 : date.value.getMonth() - 1;
+    year = month === 11 ? date.value.getFullYear() - 1 : date.value.getFullYear();
+  } else {
+    month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
+    year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
+  }
+
+  date.value.setMonth(month);
+  date.value.setFullYear(year);
+  date.value = new Date(date.value);
 };
 </script>
 <style lang="scss" scoped>
