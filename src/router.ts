@@ -1,15 +1,36 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Home from '@/pages/index.vue';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+const ComponentsPage = () => import('@/pages/componentsPage/index.vue');
+const Calendar = () => import('@/components/calendar/index.vue');
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    redirect: 'components',
+  },
+  {
+    path: '/components',
+    name: 'components',
+    component: ComponentsPage,
+    meta: {
+      icon: 'ri-apps-line',
+      cname: '组件',
+      visible: true,
+    },
+    children: [
+      {
+        path: '/components/calendar',
+        name: 'calendar',
+        component: Calendar,
+        meta: {
+          icon: 'ri-calendar-2-line',
+          name: 'calendar',
+        },
+      },
+    ],
   },
 ];
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
