@@ -98,6 +98,7 @@ $gray: #979797;
   height: 28px;
   font-size: 12px;
   background: #fff;
+  margin: 0;
   padding: 0 16px;
   border: 1px solid rgba($gray, 0.4);
   border-radius: 14px;
@@ -185,7 +186,6 @@ $gray: #979797;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 10em;
-    z-index: -1;
     font-weight: bold;
     color: rgba($gray, 0.1);
   }
