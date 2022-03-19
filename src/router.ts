@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 const ComponentsPage = () => import('@/pages/componentsPage/index.vue');
 const Calendar = () => import('@/components/calendar/index.vue');
-
+const Tabs = () => import('@/components/tabs/index.vue');
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -24,6 +24,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'ri-calendar-2-line',
           name: 'calendar',
+        },
+      },
+      {
+        path: '/components/tabs',
+        name: 'tabs',
+        component: Tabs,
+        meta: {
+          icon: 'ri-stack-fill',
+          name: 'tab',
         },
       },
     ],

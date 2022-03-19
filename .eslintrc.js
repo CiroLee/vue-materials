@@ -34,11 +34,6 @@ module.exports = {
     'max-len': ['error', { code: 120 }],
     // 开发环境允许debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'vue/multi-word-component-names': [
-      'error',
-      {
-        ignores: ['index'],
-      },
-    ],
+    'vue/multi-word-component-names': 'off',
   },
 };

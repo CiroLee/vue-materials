@@ -4,6 +4,7 @@
       <GlassLinkCard
         v-for="(item, index) in componentsList.children"
         :key="index"
+        class="card-list__glass"
         :icon="(item.meta?.icon as string)"
         :path="item.path"
         :name="(item?.name as string)"
@@ -26,6 +27,14 @@ const router = useRouter();
 const pathName = computed(() => route.name);
 </script>
 <style lang="scss" scoped>
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  &__glass {
+    margin: 0 6px 6px 0;
+  }
+}
+
 .back {
   padding: 8px 0;
   i {

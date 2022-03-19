@@ -17,17 +17,19 @@ defineProps<IGlassCardProps>();
 <style lang="scss" scoped>
 .bg-icon {
   position: absolute;
-  font-size: 60px;
+  font-size: 100px;
   color: rgba(#fff, 40%);
-  right: -10px;
-  bottom: -16px;
+  right: -18px;
+  bottom: -24px;
   transition: all 0.2s ease-in-out;
 }
 
 .glass-card {
   text-decoration: unset;
-  width: 200px;
-  height: 80px;
+  flex: 1;
+  min-width: 200px;
+  max-width: 320px;
+  height: 100px;
   border-radius: 4px;
   display: block;
   position: relative;
