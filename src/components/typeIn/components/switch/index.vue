@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   checkedNode: undefined,
   unCheckedNode: undefined,
 });
-const { width, height, circle2Radius, circleAniLen, marginLeftAni } = getSize(props.size);
+const { width, height, circle2Radius: diameter, circleAniLen: len, marginLeftAni: ml } = getSize(props.size);
 const emits = defineEmits(['change']);
 const circleAni = ref(false);
 
@@ -77,9 +77,9 @@ $disabled-color: rgb(120, 120, 128, 16%);
   transition: background-color 0.3s ease;
   &::before {
     content: '';
-    width: v-bind(circle2radius);
-    height: v-bind(circle2radius);
-    border-radius: calc(v-bind(circle2radius) / 2);
+    width: v-bind(diameter);
+    height: v-bind(diameter);
+    border-radius: calc(v-bind(diameter) / 2);
     background: #fff;
     transition: all 0.3s ease;
     position: relative;
@@ -87,7 +87,7 @@ $disabled-color: rgb(120, 120, 128, 16%);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 15%), 0 3px 1px rgba(0, 0, 0, 6%);
   }
   &.circle-ani::before {
-    width: calc(v-bind(circle2radius) + v-bind(circleanilen));
+    width: calc(v-bind(diameter) + v-bind(len));
   }
 }
 
@@ -105,10 +105,10 @@ $disabled-color: rgb(120, 120, 128, 16%);
     background-color: $active-color;
   }
   &:checked + .switch-label::before {
-    margin-left: v-bind(marginleftani);
+    margin-left: v-bind(ml);
   }
   &:checked + .switch-label.circle-ani::before {
-    margin-left: calc(v-bind(marginleftani) - v-bind(circleanilen));
+    margin-left: calc(v-bind(ml) - v-bind(len));
   }
   &:disabled {
     cursor: not-allowed;
