@@ -13,19 +13,15 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, VNode } from 'vue';
+import { ref } from 'vue';
 import { getSize } from './utils';
 interface SwitchProps {
   size?: 'small' | 'medium' | 'large';
   checked?: boolean;
   disabled?: boolean;
-  checkedNode?: VNode;
-  unCheckedNode?: VNode;
 }
 const props = withDefaults(defineProps<SwitchProps>(), {
   size: 'medium',
-  checkedNode: undefined,
-  unCheckedNode: undefined,
 });
 const { width, height, circle2Radius: diameter, circleAniLen: len, marginLeftAni: ml } = getSize(props.size);
 const emits = defineEmits(['change']);
