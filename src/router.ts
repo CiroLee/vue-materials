@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 const ComponentsPage = () => import('@/pages/componentsPage/index.vue');
 const Calendar = () => import('@/components/calendar/index.vue');
 const Tabs = () => import('@/components/tabs/index.vue');
+const TypeIn = () => import('@/components/typeIn/index.vue');
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -33,6 +34,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'ri-stack-fill',
           name: 'tab',
+        },
+      },
+      {
+        path: '/components/type-in',
+        name: 'type-in',
+        component: TypeIn,
+        meta: {
+          icon: 'ri-input-method-line',
+          name: 'type-in',
         },
       },
     ],

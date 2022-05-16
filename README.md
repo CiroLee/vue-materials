@@ -4,10 +4,11 @@
 
 ## 组件列表
 
-| 名称                                             | 描述                   |
-| ------------------------------------------------ | ---------------------- |
-| [Calendar](./src/components/calendar/index.vue)  | 日历组件(适用于 PC 端) |
-| [Tabs](./src/components/tabs/components/tab.vue) | Tabs 组件              |
+| 名称                                                        | 描述                   |
+| :---------------------------------------------------------- | ---------------------- |
+| [Calendar](./src/components/calendar/index.vue)             | 日历组件(适用于 PC 端) |
+| [Tabs](./src/components/tabs/components/tab.vue)            | Tabs 组件              |
+| [Switch](src/components/typeIn/components/switch/index.vue) | Switch 组件            |
 
 ## 开发
 
