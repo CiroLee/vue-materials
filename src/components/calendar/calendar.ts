@@ -47,9 +47,9 @@ export const generateCalendar = (date: Date) => {
   const days = getDays(currentYear, currentMonth);
   // 获取上月末尾天数和下月开头的天数，用于填补当月日历空白
   const { days: lastMonthDays, year: lastMonthYear, month: lastMonth } = getNextOrLastMonthDays(date, 'last');
-  const { year: nextMonthYear, month: nextMonthMonth } = getNextOrLastMonthDays(date, 'next');
+  const { year: nextMonthYear, month: nextMonth } = getNextOrLastMonthDays(date, 'next');
   // 1号是星期几
-  const weekIndex = new Date(`${currentYear}, ${currentMonth + 1}, 1`).getDay();
+  const weekIndex = new Date(`${currentYear}/${currentMonth + 1}/1`).getDay();
   // 显示在当月末尾的下月天数
   const trailDays = calendarGrid - weekIndex - days;
   let trailVal = 0;
@@ -70,7 +70,7 @@ export const generateCalendar = (date: Date) => {
       }
       calendarTable[i] = {
         year: nextMonthYear,
-        month: nextMonthMonth,
+        month: nextMonth,
         day: trailVal,
         isCurrentMonth: false,
       };
