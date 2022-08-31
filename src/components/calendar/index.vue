@@ -87,8 +87,6 @@ const changeMonth = (type: 'prev' | 'next'): void => {
   date.value.setFullYear(year);
 
   date.value = new Date(date.value);
-
-  console.log('date::::', date.value.getMonth());
 };
 </script>
 <style lang="scss" scoped>
