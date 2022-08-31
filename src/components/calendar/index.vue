@@ -82,10 +82,13 @@ const changeMonth = (type: 'prev' | 'next'): void => {
     month = date.value.getMonth() === 11 ? 0 : date.value.getMonth() + 1;
     year = month === 0 ? date.value.getFullYear() + 1 : date.value.getFullYear();
   }
-
+  date.value.setDate(1);
   date.value.setMonth(month);
   date.value.setFullYear(year);
+
   date.value = new Date(date.value);
+
+  console.log('date::::', date.value.getMonth());
 };
 </script>
 <style lang="scss" scoped>
