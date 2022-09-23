@@ -4,7 +4,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/vue-components/',
+  base: '/vue-materials/',
   plugins: [vue()],
   resolve: {
     alias: {
