@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --config .eslintrc.js",
     "lint:css": "stylelint src/**/*.{vue,css,sass,scss}",
@@ -25,8 +25,7 @@
       "eslint --config .eslintrc.js"
     ],
     "*.{vue,css,sass,scss}": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ]
   },
   "dependencies": {
