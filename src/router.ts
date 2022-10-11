@@ -3,6 +3,7 @@ const ComponentsPage = () => import('@/pages/componentsPage/index.vue');
 const Calendar = () => import('@/components/calendar/index.vue');
 const Tabs = () => import('@/components/tabs/index.vue');
 const TypeIn = () => import('@/components/typeIn/index.vue');
+const Tree = () => import('@/components/tree/index.vue');
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -43,6 +44,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'ri-input-method-line',
           name: 'type-in',
+        },
+      },
+      {
+        path: '/components/tree',
+        name: 'tree',
+        component: Tree,
+        meta: {
+          icon: 'ri-node-tree',
+          name: 'tree',
         },
       },
     ],

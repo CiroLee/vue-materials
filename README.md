@@ -9,6 +9,7 @@
 | [Calendar](./src/components/calendar/index.vue)             | 日历组件(适用于 PC 端) |
 | [Tabs](./src/components/tabs/components/tab.vue)            | Tabs 组件              |
 | [Switch](src/components/typeIn/components/switch/index.vue) | Switch 组件            |
+| [Tree](src/components/tree/components//tree.vue)            | tree 组件              |
 
 ## 开发
 
