@@ -7,8 +7,7 @@
         class="card-list__glass"
         :icon="(item.meta?.icon as string)"
         :path="item.path"
-        :name="(item?.name as string)"
-      />
+        :name="(item?.name as string)" />
     </div>
     <div v-else class="back">
       <i class="ri-arrow-left-line" @click="router.back()"></i>
@@ -21,7 +20,7 @@ import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import GlassLinkCard from '@/components/glassLinkCard/index.vue';
 import { routes } from '@/router';
-const componentsList = routes.filter(item => item.name === 'components' && item.children)[0];
+const componentsList = routes.filter((item) => item.name === 'components' && item.children)[0];
 const route = useRoute();
 const router = useRouter();
 const pathName = computed(() => route.name);

@@ -7,8 +7,7 @@
       name="switch"
       @mousedown="handleMouseDown"
       @mouseup="handleMouseUp"
-      @change="handleChange"
-    />
+      @change="handleChange" />
     <div class="switch-label" :class="{ 'circle-ani': circleAni }"></div>
   </div>
 </template>
@@ -27,7 +26,7 @@ const { width, height, circle2Radius: diameter, circleAniLen: len, marginLeftAni
 const emits = defineEmits(['change']);
 const circleAni = ref(false);
 
-let timer: NodeJS.Timer | undefined;
+let timer: ReturnType<typeof setTimeout>;
 
 const handleMouseDown = () => {
   let time = 0;

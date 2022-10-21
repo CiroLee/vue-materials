@@ -57,6 +57,16 @@ export const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+  {
+    path: '/hooks',
+    name: 'hooks',
+    component: () => import('@/pages/hooksPage/index.vue'),
+    meta: {
+      icon: 'ri-donut-chart-line',
+      cname: 'hooks',
+      visible: true,
+    },
+  },
 ];
 
 export default createRouter({
