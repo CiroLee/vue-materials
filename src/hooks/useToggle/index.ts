@@ -1,13 +1,12 @@
 import { isRef, Ref, ref, UnwrapRef } from 'vue';
-
-type ToggleFunc = () => void;
+import type { Fn } from '../types/hooks';
 
 /**
  * @desc hook - toogle a value
  * @param initValue [optional] initial value
  * @param reverseValue [optional] reverse value
  */
-function useToggle<T>(initValue?: T, reverseValue?: T): [Ref<UnwrapRef<T>>, ToggleFunc] {
+function useToggle<T>(initValue?: T, reverseValue?: T): [Ref<UnwrapRef<T>>, Fn] {
   if (isRef(initValue) || isRef(reverseValue)) {
     throw new Error(`neither initValue nor reverseValue should be typeof Ref`);
   }

@@ -29,6 +29,7 @@ specifiers:
   stylelint-config-standard: ^25.0.0
   stylelint-config-standard-scss: ^3.0.0
   stylelint-scss: ^4.3.0
+  tiny-lorem: ^0.0.6
   typescript: ^4.8.4
   unplugin-vue-define-options: ^0.12.0
   vite: ^3.1.7
@@ -39,6 +40,7 @@ specifiers:
 dependencies:
   pinia: 2.0.23_bfjwoga25wxjazzogo7o372nwq
   reset-css: 5.0.1
+  tiny-lorem: 0.0.6
   vue: 3.2.40
   vue-router: 4.1.5_vue@3.2.40
 
@@ -4491,6 +4493,10 @@ packages:
     dependencies:
       readable-stream: 3.6.0
     dev: true
+
+  /tiny-lorem/0.0.6:
+    resolution: {integrity: sha512-41IHUH7XY5CRSdncBQ+C5ohxd1FBton91ziWvShZFJRmWoUEQvsF6gUW2XMWOGYU/SJFM3LNiCQMO/05jiEeUA==}
+    dev: false
 
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

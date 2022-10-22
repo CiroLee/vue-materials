@@ -21,7 +21,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{jsx,tsx,ts,js,json,vue,md}": [
+    "src/**/*.{jsx,tsx,ts,js,json,vue}": [
       "eslint --config .eslintrc.js"
     ],
     "*.{vue,css,sass,scss}": [
@@ -31,6 +31,7 @@
   "dependencies": {
     "pinia": "^2.0.23",
     "reset-css": "^5.0.1",
+    "tiny-lorem": "^0.0.6",
     "vue": "^3.2.40",
     "vue-router": "^4.1.5"
   },
