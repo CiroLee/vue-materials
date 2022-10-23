@@ -5,8 +5,7 @@
       :key="item.id"
       class="tree-node"
       :class="{ expanded: expandedIds.includes(item.id), disabled: item.disabled }"
-      @click.stop="nodeClick(item)"
-    >
+      @click.stop="nodeClick(item)">
       <div class="tree-item">
         <i v-if="item.children" class="ri-arrow-right-s-fill"></i>
         <div>{{ item.text }}</div>
@@ -40,7 +39,7 @@ const expandedIds = ref<string[]>([]);
 const nodeClick = (item: TreeNode) => {
   if (item.disabled) return;
   if (expandedIds.value.includes(item.id)) {
-    expandedIds.value = expandedIds.value.filter(id => id !== item.id);
+    expandedIds.value = expandedIds.value.filter((id) => id !== item.id);
   } else {
     expandedIds.value.push(item.id);
   }
@@ -54,7 +53,6 @@ const nodeClick = (item: TreeNode) => {
   padding: 0 8px;
   transition: background-color 0.1s ease;
   i {
-    margin-top: -2px;
     transition: transform 0.1s;
   }
   &:hover {
