@@ -43,16 +43,29 @@
           <button @click="handleCut(text)">cut</button>
         </div>
       </div>
+      <div class="panel">
+        <div class="title">useNetwork</div>
+        <div class="panel-item">
+          <p>isSupported: {{ networkStatus.isSupported }}</p>
+          <p>online: {{ networkStatus.isOnLine }}</p>
+          <p>networkType: {{ networkStatus.type }}</p>
+          <p>effectiveType: {{ networkStatus.effectiveType }}</p>
+          <p>downlink: {{ networkStatus.downlink }}</p>
+          <p>downlinkMax: {{ networkStatus.downlinkMax }}</p>
+          <p>rtt: {{ networkStatus.rtt }}</p>
+          <p>saveData: {{ networkStatus.saveData }}</p>
+        </div>
+      </div>
     </content>
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue';
 import tinyLorem from 'tiny-lorem';
 import useToggle from '@/hooks/useToggle';
 import useWindowSize from '@/hooks/useWindowSize';
 import useDark from '@/hooks/useDark';
 import useClipboard from '@/hooks/useClipboard';
+import useNetwork from '@/hooks/useNetwork';
 
 const lorem = new tinyLorem();
 const mockTexts = lorem.texts.sentence({ range: 40, language: 'en' });
@@ -61,8 +74,8 @@ const [isDark, toggleDark] = useDark();
 const [bool, toogleBool] = useToggle(false);
 const [str, toogleStr] = useToggle('a', 'b');
 const [width, height] = useWindowSize(false);
-
 const [text, { copy, cut }] = useClipboard('');
+const networkStatus = useNetwork();
 
 const handleCopy = async (val: string) => {
   try {
