@@ -13,11 +13,14 @@ import { routes } from '@/router';
 <style lang="scss" scoped>
 .layout {
   display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .layout-content {
   flex: 1;
   padding: 16px;
   background: #fafafa;
+  overflow: auto;
 }
 </style>

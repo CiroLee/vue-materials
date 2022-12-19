@@ -6,8 +6,7 @@
         :key="index"
         class="menu"
         :class="{ active: pathName.includes(item.path) }"
-        @click="menuClick(item.path)"
-      >
+        @click="menuClick(item.path)">
         <i class="icon" :class="item?.meta?.icon"></i>
         <span class="menu__text">{{ item?.meta?.cname }}</span>
       </div>
@@ -38,7 +37,7 @@ const route = useRoute();
 const pathName = computed(() => route.path);
 // v-if 和 v-for不能作用在同一个元素上 的解决方案
 //  https://vuejs.org/style-guide/rules-essential.html#avoid-v-if-with-v-for
-const visibleMenus = computed(() => props.menus.filter(item => item?.meta?.visible));
+const visibleMenus = computed(() => props.menus.filter((item) => item?.meta?.visible));
 
 const menuClick = (path: string) => {
   router.push(path);

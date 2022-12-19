@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted } from 'vue';
+import { onUnmounted } from 'vue';
 
 function useEventListener<E extends keyof WindowEventMap>(
   target: EventTarget,
@@ -7,9 +7,8 @@ function useEventListener<E extends keyof WindowEventMap>(
   options?: boolean | AddEventListenerOptions,
 ): void {
   const opt = options ?? false;
-  onMounted(() => {
-    target.addEventListener(eventType, listener, opt);
-  });
+  target.addEventListener(eventType, listener, opt);
+
   onUnmounted(() => {
     target.removeEventListener(eventType, listener, opt);
   });
