@@ -1,9 +1,12 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 const ComponentsPage = () => import('@/pages/componentsPage/index.vue');
+const hooksPage = () => import('@/pages/hooksPage/index.vue');
 const Calendar = () => import('@/components/calendar/index.vue');
 const Tabs = () => import('@/components/tabs/index.vue');
 const TypeIn = () => import('@/components/typeIn/index.vue');
 const Tree = () => import('@/components/tree/index.vue');
+const NumberAnimate = () => import('@/components/numberAnimate/index.vue');
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -55,12 +58,21 @@ export const routes: Array<RouteRecordRaw> = [
           name: 'tree',
         },
       },
+      {
+        path: '/components/number-animate',
+        name: 'number-animate',
+        component: NumberAnimate,
+        meta: {
+          icon: 'ri-number-1',
+          name: 'number-animate',
+        },
+      },
     ],
   },
   {
     path: '/hooks',
     name: 'hooks',
-    component: () => import('@/pages/hooksPage/index.vue'),
+    component: hooksPage,
     meta: {
       icon: 'ri-donut-chart-line',
       cname: 'hooks',
