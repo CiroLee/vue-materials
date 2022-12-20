@@ -10,7 +10,7 @@
 | [Tabs](./src/components/tabs/components/tab.vue)                            | Tabs 组件              |
 | [Switch](src/components/typeIn/components/switch/index.vue)                 | Switch 组件            |
 | [Tree](src/components/tree/components/tree.vue)                             | tree 组件              |
-| [NumberAnimate](src/components/numberAnimate/components/number-animate.vue) | tree 组件              |
+| [NumberAnimate](src/components/numberAnimate/components/number-animate.vue) | NumberAnimate 组件     |
 
 ## 开发
 

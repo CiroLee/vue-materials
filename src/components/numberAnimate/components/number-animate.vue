@@ -1,5 +1,7 @@
 <template>
-  <div>{{ playEnd || playing ? animatedVal : startValue }}</div>
+  <div>
+    {{ prefix }}{{ playEnd || playing ? formatValue(animatedValue, separator) : formatValue(startValue, separator) }}
+  </div>
 </template>
 <script lang="ts" setup>
 export interface NumberAnimateInstance {
@@ -10,33 +12,28 @@ interface NumberAnimateProps {
   start: number;
   end: number;
   precision?: number;
-  speed?: number;
+  rate?: number;
+  separator?: boolean;
+  prefix?: string;
 }
 let intervalTimer: ReturnType<typeof setInterval> = 0;
 const playing = ref(false);
 const playEnd = ref(false);
 const props = withDefaults(defineProps<NumberAnimateProps>(), {
   precision: 0,
-  speed: 1,
+  rate: 1,
+  prefix: '',
+  separator: false,
 });
-const animatedVal = ref('');
-const precision = computed(() => Math.round(props.precision));
-const startValue = computed(() => formatStartValue(props.start, precision.value));
-const speedValue = computed(() => Math.abs(props.speed));
-const formatStartValue = (start: number, precision: number) => {
-  const [integer, decimals = ''] = start.toString().split('.');
-  if (precision) {
-    const prec = Math.min(precision, decimals.length);
-    let digit = decimals.slice(0, prec);
-    const rounded = Number(decimals.at(prec)) >= 5;
-    if (rounded) {
-      const digitArr = digit.split('');
-      digitArr.splice(-1, 1, String(Number(digit[digit.length - 1]) + 1));
-      digit = digitArr.join('');
-    }
-    return `${integer}.${digit}${'0'.repeat(Math.abs(precision - decimals.length))}`;
-  }
-  return `${Math.round(start)}`;
+const animatedValue = ref('');
+const precision = computed(() => Math.round(Math.abs(props.precision)));
+const startValue = computed(() => props.start.toFixed(precision.value));
+const rateValue = computed(() => Math.abs(props.rate));
+
+const formatValue = (value: string, separator?: boolean) => {
+  const [integer, digit] = String(value).split('.');
+  const separatedValue = separator ? `${Number(integer).toLocaleString()}${digit ? `.${digit}` : ''}` : value;
+  return separatedValue;
 };
 
 const play = () => {
@@ -46,21 +43,19 @@ const play = () => {
   playing.value = true;
   playEnd.value = false;
   let step = 1 / 10 ** precision.value || 1;
-  playing.value = true;
 
   step = props.start < props.end ? step : -step;
-  animatedVal.value = `${props.start}`;
+  animatedValue.value = `${startValue.value}`;
 
   intervalTimer = setInterval(() => {
-    if (Math.abs(Number(animatedVal.value)) < Math.abs(props.end)) {
-      animatedVal.value = (Number(animatedVal.value) + step).toFixed(precision.value);
+    if (Number(animatedValue.value) !== props.end) {
+      animatedValue.value = (Number(animatedValue.value) + step).toFixed(precision.value);
     } else {
       clearInterval(intervalTimer);
       playEnd.value = true;
       playing.value = false;
-      animatedVal.value = formatStartValue(props.end, precision.value);
     }
-  }, speedValue.value);
+  }, rateValue.value);
 };
 
 defineExpose({ play });
