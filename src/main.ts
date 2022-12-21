@@ -4,6 +4,8 @@ import App from './App.vue';
 import router from './router';
 import 'reset-css';
 import './styles/global.style.scss';
+// 引入uno.css
+import 'uno.css';
 
 const app = createApp(App);
 

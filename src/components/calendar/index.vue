@@ -26,8 +26,7 @@
         v-for="(item, index) in calendarTable"
         :key="index"
         class="calendar-content__item"
-        :class="[{ light: !item.isCurrentMonth }, { active: isActive(item) }]"
-      >
+        :class="[{ light: !item.isCurrentMonth }, { active: isActive(item) }]">
         {{ item.day }}
       </div>
     </div>
@@ -133,7 +132,7 @@ $gray: #979797;
     border-bottom-left-radius: 0;
     border-left: 0;
   }
-  .button:not(:first-child):not(:last-child) {
+  .button:not(:first-child, :last-child) {
     border-radius: 0;
     border-left: 0;
   }

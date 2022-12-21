@@ -1,7 +1,7 @@
 <template>
-  <div class="layout">
+  <div flex h-screen overflow-hidden>
     <SideBar :collapsible="false" :menus="routes" />
-    <div class="layout-content">
+    <div flex-1 p-16px overflow-auto bg="#fafafa">
       <router-view />
     </div>
   </div>
@@ -10,17 +10,3 @@
 import SideBar from './sideBar/index.vue';
 import { routes } from '@/router';
 </script>
-<style lang="scss" scoped>
-.layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.layout-content {
-  flex: 1;
-  padding: 16px;
-  background: #fafafa;
-  overflow: auto;
-}
-</style>

@@ -1,22 +1,22 @@
 <template>
   <div class="switch-wrap">
-    <div class="div-box">
-      <div class="title">switch</div>
-      <p class="flex--v-center">
-        <span>large: </span>
-        <Switch class="switch-gap" size="large" checked @change="switchChange" />
+    <div mt-10px>
+      <div font-bold mb-8px>switch</div>
+      <p flex content-center mb-12px>
+        <span inline-block w-60px mr-16px text-right>large: </span>
+        <Switch size="large" checked @change="switchChange" />
       </p>
-      <p class="flex--v-center">
-        <span>default: </span>
-        <Switch class="switch-gap" size="medium" />
+      <p flex content-center mb-12px>
+        <span inline-block w-60px mr-16px text-right>default: </span>
+        <Switch size="medium" />
       </p>
-      <p class="flex--v-center">
-        <span>small: </span>
-        <Switch class="switch-gap" size="small" />
+      <p flex content-center mb-12px>
+        <span inline-block w-60px mr-16px text-right>small: </span>
+        <Switch size="small" />
       </p>
-      <p class="flex--v-center">
-        <span>禁用: </span>
-        <Switch class="switch-gap" size="small" disabled />
+      <p flex content-center mb-12px>
+        <span inline-block w-60px mr-16px text-right>禁用: </span>
+        <Switch size="small" disabled />
       </p>
     </div>
   </div>
@@ -27,27 +27,3 @@ const switchChange = (checked: boolean) => {
   console.log(checked);
 };
 </script>
-<style lang="scss" scoped>
-.flex--v-center {
-  display: flex;
-  align-items: center;
-}
-
-.div-box {
-  margin-top: 10px;
-  p {
-    span {
-      display: inline-block;
-      width: 60px;
-      margin-right: 16px;
-      text-align: right;
-    }
-
-    margin-bottom: 12px;
-  }
-  .title {
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-}
-</style>

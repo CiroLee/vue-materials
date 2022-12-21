@@ -2,50 +2,50 @@
   <div class="hooks-wrapper">
     <h1 class="g-title">hooks</h1>
     <content>
-      <div class="panel">
-        <div class="title">useToggle</div>
-        <div class="panel-item">
+      <div>
+        <div font-bold>useToggle</div>
+        <div my-12px>
           <p>init: false</p>
           <p>{{ bool }}</p>
-          <button @click="toogleBool">toggle</button>
+          <button @click="toggleBool">toggle</button>
         </div>
-        <div class="panel-item">
+        <div my-12px>
           <p>init: false</p>
           <p>{{ str }}</p>
-          <button @click="toogleStr">toggle</button>
+          <button @click="toggleStr">toggle</button>
         </div>
       </div>
-      <div class="pabel">
-        <div class="title">useWindowSize</div>
-        <div class="panel-item">
+      <div>
+        <div font-bold>useWindowSize</div>
+        <div my-12px>
           <p>{{ width }}x{{ height }}</p>
         </div>
       </div>
-      <div class="panel">
-        <div class="title">useDark</div>
-        <div class="panel-item">
+      <div>
+        <div font-bold>useDark</div>
+        <div my-12px>
           <p>darkMode: auto</p>
           <p class="texts" :class="{ 'dark-mode': isDarkAuto }">{{ mockTexts }}</p>
         </div>
       </div>
-      <div class="panel">
+      <div>
         <p>darkMode: manual</p>
-        <div class="panel-item">
+        <div my-12px>
           <p class="texts" :class="{ 'dark-mode': isDark }">{{ mockTexts }}</p>
           <button @click="toggleDark">{{ isDark ? 'Light' : 'Dark' }}</button>
         </div>
       </div>
-      <div class="pabel">
-        <p class="title">useClipboard</p>
-        <div class="panel-item">
+      <div>
+        <p font-bold>useClipboard</p>
+        <div my-12px>
           <input v-model="text" type="text" />
           <button @click="handleCopy(text)">copy</button>
           <button @click="handleCut(text)">cut</button>
         </div>
       </div>
-      <div class="panel">
-        <div class="title">useNetwork</div>
-        <div class="panel-item">
+      <div>
+        <div font-bold>useNetwork</div>
+        <div my-12px>
           <p>isSupported: {{ networkStatus.isSupported }}</p>
           <p>online: {{ networkStatus.isOnLine }}</p>
           <p>networkType: {{ networkStatus.type }}</p>
@@ -71,8 +71,8 @@ const lorem = new tinyLorem();
 const mockTexts = lorem.texts.sentence({ range: 40, language: 'en' });
 const isDarkAuto = useDark(true);
 const [isDark, toggleDark] = useDark();
-const [bool, toogleBool] = useToggle(false);
-const [str, toogleStr] = useToggle('a', 'b');
+const [bool, toggleBool] = useToggle(false);
+const [str, toggleStr] = useToggle('a', 'b');
 const [width, height] = useWindowSize(false);
 const [text, { copy, cut }] = useClipboard('');
 const networkStatus = useNetwork();
@@ -95,14 +95,6 @@ const handleCut = async (val: string) => {
 };
 </script>
 <style lang="scss" scoped>
-.title {
-  font-weight: bold;
-}
-
-.panel-item {
-  margin: 12px 0;
-}
-
 .texts {
   padding: 12px 20px;
   background-color: #eee;
