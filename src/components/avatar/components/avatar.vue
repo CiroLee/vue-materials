@@ -1,8 +1,8 @@
 <template>
   <div class="avatar" :class="[{ 'box-shadow': boxShadow }, size, shape, status]" :data-dot="dots">
     <img v-if="url" :src="url" alt="" />
-    <span v-if="!url && text">{{ text }}</span>
-    <div v-if="dot" class="avatar__dot">
+    <span v-if="!url && text" class="avatar__text">{{ text }}</span>
+    <div v-if="dot" class="avatar__dot" :class="{ 'num-dot': typeof dot === 'string' }">
       <span>{{ dots }}</span>
     </div>
   </div>
@@ -20,7 +20,7 @@ export interface AvatarProps {
   boxShadow?: boolean;
   fit?: 'contain' | 'cover' | 'fill' | 'scale-down' | 'none';
   status?: 'online' | 'offline';
-  dot?: boolean | number;
+  dot?: boolean | string;
 }
 const props = withDefaults(defineProps<AvatarProps>(), {
   url: '',
@@ -38,15 +38,20 @@ const props = withDefaults(defineProps<AvatarProps>(), {
 const bgcolor = computed(() => props.bgColor);
 const fit = computed(() => props.fit);
 const color = computed(() => props.color);
+const scale = computed(() => {
+  if (props.text.length > 1) {
+    return 2 / props.text.length;
+  }
+  return 1;
+});
 const fontsize = computed(() => props.fontSize);
-const dots = computed(() => (typeof props.dot === 'number' ? `${props.dot}` : ''));
+const dots = computed(() => (typeof props.dot === 'string' ? props.dot : ''));
 </script>
 <style lang="scss">
 $xlarge: 56px;
 $large: 48px;
 $medium: 40px;
 $small: 32px;
-$default-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M20 22h-2v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v2H4v-2a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v2zm-8-9a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" fill="rgba(137,137,137,1)"/></svg>');
 
 .avatar {
   width: $medium;
@@ -60,6 +65,9 @@ $default-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/sv
   justify-content: center;
 
   --shadow: v-bind(bgcolor);
+  &.square {
+    border-radius: 0.06em;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -94,15 +102,14 @@ $default-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/sv
     color: v-bind(color);
     font-size: v-bind(fontsize);
   }
-  &:empty {
-    background: #d6d6d6 $default-svg center no-repeat;
-    background-size: 52% auto;
+  &__text {
+    transform: scale(v-bind(scale));
   }
   &::after {
     content: '';
-    width: 0.3em;
-    height: 0.3em;
-    border-radius: 0.3em;
+    width: 0.32em;
+    height: 0.32em;
+    border-radius: 0.32em;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -110,9 +117,9 @@ $default-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/sv
   }
   &.square::after {
     content: '';
-    width: 0.3em;
-    height: 0.3em;
-    border-radius: 0.3em;
+    width: 0.32em;
+    height: 0.32em;
+    border-radius: 0.32em;
     position: absolute;
     right: -0.1em;
     bottom: -0.1em;
@@ -130,20 +137,29 @@ $default-svg: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/sv
     }
   }
   &__dot {
-    padding: 0 0.085em;
+    width: 0.32em;
     height: 0.32em;
     line-height: 0.32em;
     border-radius: 2em;
     position: absolute;
-    left: 1em;
+    left: 0.7em;
     top: 0;
     background-color: red;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    z-index: 2;
+    &.num-dot {
+      width: unset;
+      padding: 0 0.085em;
+    }
     span {
       font-size: 0.2em;
     }
+  }
+  &.square .avatar__dot {
+    left: 0.7em;
+    top: -0.1em;
   }
 }
 </style>
