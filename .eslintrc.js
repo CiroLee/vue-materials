@@ -33,7 +33,7 @@ module.exports = {
     ],
     'prettier/prettier': 'error',
     semi: ['error', 'always'],
-    'max-len': ['error', { code: 120 }],
+    'max-len': ['error', { code: 120, ignoreStrings: true, ignoreUrls: true }],
     // 开发环境允许debugger
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/multi-word-component-names': 'off',

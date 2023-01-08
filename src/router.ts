@@ -6,6 +6,7 @@ const Tabs = () => import('@/components/tabs/index.vue');
 const TypeIn = () => import('@/components/typeIn/index.vue');
 const Tree = () => import('@/components/tree/index.vue');
 const NumberAnimate = () => import('@/components/numberAnimate/index.vue');
+const Avatar = () => import('@/components/avatar/index.vue');
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -65,6 +66,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'ri-number-1',
           name: 'number-animate',
+        },
+      },
+      {
+        path: '/components/avatar',
+        name: 'avatar',
+        component: Avatar,
+        meta: {
+          icon: 'ri-user-smile-line',
+          name: 'avatar',
         },
       },
     ],
