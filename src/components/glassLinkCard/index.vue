@@ -28,7 +28,7 @@ defineProps<IGlassCardProps>();
   text-decoration: unset;
   flex: 1;
   min-width: 200px;
-  max-width: 320px;
+  max-width: 260px;
   height: 100px;
   border-radius: 4px;
   display: block;

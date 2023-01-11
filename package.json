@@ -4,13 +4,13 @@
   "description": "useful vue components written by vue3.2 and typescript",
   "author": "cirolee<ciromail@126.com>",
   "license": "MIT",
-  "homepage": "https://github.com/CiroLee/vue-components",
+  "homepage": "https://github.com/CiroLee/vue-materials",
   "repository": {
     "type": "git",
-    "url": "https://github.com/CiroLee/vue-components.git"
+    "url": "https://github.com/CiroLee/vue-materials.git"
   },
   "bugs": {
-    "url": "https://github.com/CiroLee/vue-components/issues"
+    "url": "https://github.com/CiroLee/vue-materials/issues"
   },
   "scripts": {
     "dev": "vite",

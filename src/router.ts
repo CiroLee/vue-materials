@@ -7,6 +7,7 @@ const TypeIn = () => import('@/components/typeIn/index.vue');
 const Tree = () => import('@/components/tree/index.vue');
 const NumberAnimate = () => import('@/components/numberAnimate/index.vue');
 const Avatar = () => import('@/components/avatar/index.vue');
+const ResizableBox = () => import('@/components/resizableBox/index.vue');
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -75,6 +76,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'ri-user-smile-line',
           name: 'avatar',
+        },
+      },
+      {
+        path: '/components/resizable-box',
+        name: 'resizable-box',
+        component: ResizableBox,
+        meta: {
+          icon: 'ri-swap-box-line',
+          name: 'resizable-box',
         },
       },
     ],

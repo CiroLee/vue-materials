@@ -19,8 +19,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import numberAnimate from './components/number-animate.vue';
-import type { NumberAnimateInstance } from './components/number-animate.vue';
+import numberAnimate from './components/numberAnimate.vue';
+import type { NumberAnimateInstance } from './components/numberAnimate.vue';
 const na0 = ref<NumberAnimateInstance>();
 const na1 = ref<NumberAnimateInstance>();
 const na2 = ref<NumberAnimateInstance>();
