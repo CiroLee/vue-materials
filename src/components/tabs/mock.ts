@@ -17,17 +17,17 @@ export const tabOptions2 = [
   {
     key: 'voice',
     title: 'voice',
-    prefixIcon: 'ri-volume-down-line',
+    prefixIcon: 'volume-down-line',
   },
   {
     key: 'store',
     title: 'store',
-    prefixIcon: 'ri-store-fill',
+    prefixIcon: 'store-fill',
   },
   {
     key: 'mail',
     title: 'mail',
-    prefixIcon: 'ri-mail-line',
+    prefixIcon: 'mail-line',
     disabled: true,
   },
 ];
@@ -36,11 +36,11 @@ export const tabOptions3 = [
   {
     key: 'voice',
     title: 'voice',
-    suffixIcon: 'ri-volume-down-line',
+    suffixIcon: 'volume-down-line',
   },
   {
     key: 'store',
     title: 'store',
-    suffixIcon: 'ri-store-fill',
+    suffixIcon: 'store-fill',
   },
 ];

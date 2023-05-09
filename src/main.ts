@@ -6,6 +6,7 @@ import 'reset-css';
 import './styles/global.style.scss';
 // 引入uno.css
 import 'uno.css';
+import 'remixicon/fonts/remixicon.css';
 
 const app = createApp(App);
 

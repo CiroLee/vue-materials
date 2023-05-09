@@ -11,7 +11,7 @@
         :name="(item?.name as string)" />
     </div>
     <div v-else py-8px>
-      <i text-24px cursor-pointer class="ri-arrow-left-line" @click="router.back()"></i>
+      <icon name="arrow-left-line" size="24px" @click="router.back()" />
     </div>
     <router-view />
   </div>
@@ -20,6 +20,7 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import GlassLinkCard from '@/components/glassLinkCard/index.vue';
+import Icon from '@/components/icon/index.vue';
 import { routes } from '@/router';
 const componentsList = routes.filter((item) => item.name === 'components' && item.children)[0];
 const route = useRoute();

@@ -3,10 +3,10 @@
     <div class="calendar-operate">
       <div class="button-group">
         <button class="button" @click="changeMonth('prev')">
-          <i class="icon ri-arrow-left-s-line"></i>
+          <icon name="arrow-left-s-line" size="24px" />
         </button>
         <button class="button" @click="changeMonth('next')">
-          <i class="icon ri-arrow-right-s-line"></i>
+          <icon name="arrow-right-s-line" size="24px" />
         </button>
       </div>
       <div class="calendar-operate__title">{{ dateText }}</div>
@@ -34,6 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
+import Icon from '@/components/icon/index.vue';
 import { weekMapZh, generateCalendar } from './calendar';
 import { isAllTrue } from '@/utils/common';
 import { CalendarItem } from './calendar';
@@ -136,13 +137,6 @@ $gray: #979797;
     border-radius: 0;
     border-left: 0;
   }
-}
-
-.icon {
-  height: 100%;
-  font-size: 24px;
-  display: inline-flex;
-  align-items: center;
 }
 
 .calendar-operate {

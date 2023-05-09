@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+// @ts-expect-error
 import DefineOptions from 'unplugin-vue-define-options/vite';
 import vue from '@vitejs/plugin-vue';
 import unocss from 'unocss/vite';

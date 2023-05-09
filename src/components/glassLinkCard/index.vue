@@ -1,12 +1,13 @@
 <template>
   <router-link :to="path" class="glass-card">
-    <i class="bg-icon" :class="icon"></i>
+    <icon class="bg-icon" size="100px" :name="icon"></icon>
     <div class="glass-card__content">
       <span class="text">{{ name }}</span>
     </div>
   </router-link>
 </template>
 <script lang="ts" setup>
+import Icon from '@/components/icon/index.vue';
 interface IGlassCardProps {
   icon: string;
   name: string;
@@ -17,8 +18,7 @@ defineProps<IGlassCardProps>();
 <style lang="scss" scoped>
 .bg-icon {
   position: absolute;
-  font-size: 100px;
-  color: rgba(#fff, 40%);
+  color: rgba(255, 255, 255, 40%);
   right: -18px;
   bottom: -24px;
   transition: all 0.2s ease-in-out;

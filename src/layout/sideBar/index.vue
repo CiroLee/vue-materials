@@ -7,12 +7,12 @@
         class="menu"
         :class="{ active: pathName.includes(item.path) }"
         @click="menuClick(item.path)">
-        <i class="icon" :class="item?.meta?.icon"></i>
+        <icon class="icon" :name="(item?.meta?.icon as string)" />
         <span class="menu__text">{{ item?.meta?.cname }}</span>
       </div>
     </div>
     <div class="sidebar-footer" @click="myCollapsible = !myCollapsible">
-      <i class="icon ri-arrow-left-s-line"></i>
+      <icon name="ri-arrow-left-s-line" size="18px" />
     </div>
   </div>
 </template>
@@ -20,6 +20,7 @@
 import { computed, ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { RouteRecordRaw } from 'vue-router';
+import Icon from '@/components/icon/index.vue';
 interface ISidebar {
   menus: RouteRecordRaw[];
   collapsible?: boolean;

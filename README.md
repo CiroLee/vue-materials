@@ -13,6 +13,8 @@
 | [NumberAnimate](src/components/numberAnimate/components/numberAnimate.vue) | NumberAnimate 组件     |
 | [avatar](src/components/avatar/components/avatar.vue)                      | avatar 组件            |
 | [avatarGroup](src/components/avatar/components/avatarGroup.vue)            | avatarGroup 组件       |
+| [Radio](src/components/typein/components/radio.vue)                        | radio 组件             |
+| [RadioGroup](src/components/typein/components/radio-group.vue)             | radioGroup 组件        |
 | [resizableBox](src/components/resizableBox/components/resizableBox.vue)    | resizableBox 组件      |
 
 ## 开发

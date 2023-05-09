@@ -19,7 +19,7 @@ export const routes: Array<RouteRecordRaw> = [
     name: 'components',
     component: ComponentsPage,
     meta: {
-      icon: 'ri-apps-line',
+      icon: 'apps-line',
       cname: '组件',
       visible: true,
     },
@@ -29,7 +29,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'calendar',
         component: Calendar,
         meta: {
-          icon: 'ri-calendar-2-line',
+          icon: 'calendar-2-line',
           name: 'calendar',
         },
       },
@@ -38,7 +38,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'tabs',
         component: Tabs,
         meta: {
-          icon: 'ri-stack-fill',
+          icon: 'stack-fill',
           name: 'tab',
         },
       },
@@ -47,7 +47,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'type-in',
         component: TypeIn,
         meta: {
-          icon: 'ri-input-method-line',
+          icon: 'input-method-line',
           name: 'type-in',
         },
       },
@@ -56,7 +56,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'tree',
         component: Tree,
         meta: {
-          icon: 'ri-node-tree',
+          icon: 'node-tree',
           name: 'tree',
         },
       },
@@ -65,7 +65,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'number-animate',
         component: NumberAnimate,
         meta: {
-          icon: 'ri-number-1',
+          icon: 'number-1',
           name: 'number-animate',
         },
       },
@@ -74,7 +74,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'avatar',
         component: Avatar,
         meta: {
-          icon: 'ri-user-smile-line',
+          icon: 'user-smile-line',
           name: 'avatar',
         },
       },
@@ -83,7 +83,7 @@ export const routes: Array<RouteRecordRaw> = [
         name: 'resizable-box',
         component: ResizableBox,
         meta: {
-          icon: 'ri-swap-box-line',
+          icon: 'swap-box-line',
           name: 'resizable-box',
         },
       },
@@ -94,7 +94,7 @@ export const routes: Array<RouteRecordRaw> = [
     name: 'hooks',
     component: hooksPage,
     meta: {
-      icon: 'ri-donut-chart-line',
+      icon: 'donut-chart-line',
       cname: 'hooks',
       visible: true,
     },

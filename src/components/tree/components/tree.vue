@@ -7,7 +7,7 @@
       :class="{ expanded: expandedIds.includes(item.id), disabled: item.disabled }"
       @click.stop="nodeClick(item)">
       <div class="tree-item">
-        <i v-if="item.children" class="ri-arrow-right-s-fill"></i>
+        <icon name="arrow-right-s-fill" />
         <div>{{ item.text }}</div>
       </div>
       <div v-if="item.children && item.children.length" class="tree-child">
@@ -17,6 +17,7 @@
   </div>
 </template>
 <script lang="ts" setup>
+import Icon from '@/components/icon/index.vue';
 export interface TreeNode {
   id: string;
   text: string;
