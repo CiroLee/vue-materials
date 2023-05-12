@@ -8,6 +8,7 @@ const Tree = () => import('@/components/tree/index.vue');
 const NumberAnimate = () => import('@/components/numberAnimate/index.vue');
 const Avatar = () => import('@/components/avatar/index.vue');
 const ResizableBox = () => import('@/components/resizableBox/index.vue');
+const InputsPage = () => import('@/components/inputs/index.vue');
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -85,6 +86,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'swap-box-line',
           name: 'resizable-box',
+        },
+      },
+      {
+        path: '/components/inputs',
+        name: 'inputs',
+        component: InputsPage,
+        meta: {
+          icon: 'input-method-line',
+          name: 'inputs',
         },
       },
     ],

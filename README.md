@@ -16,6 +16,8 @@
 | [Radio](src/components/typein/components/radio.vue)                        | radio 组件             |
 | [RadioGroup](src/components/typein/components/radio-group.vue)             | radioGroup 组件        |
 | [resizableBox](src/components/resizableBox/components/resizableBox.vue)    | resizableBox 组件      |
+| [Input](src/components/Inputs/components/input.vue)                        | Input 组件             |
+| [Textarea](src/components/Inputs/components/textarea.vue)                  | Textarea 组件          |
 
 ## 开发
 

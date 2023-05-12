@@ -11,12 +11,11 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   globals: {
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
-    defineOptions: 'readonly',
-    NodeJS: 'readonly',
+    // defineProps: 'readonly',
+    // defineEmits: 'readonly',
+    // defineExpose: 'readonly',
+    // withDefaults: 'readonly',
+    // defineOptions: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2020,
