@@ -41,6 +41,10 @@ const handleTextareaVal2 = (val: string) => {
         <r-input value="apple" :max-length="20" show-count disabled />
       </div>
       <div mb-3>
+        <p text-gray text-sm mb-1>密码 type=password</p>
+        <r-input value="apple" type="password" />
+      </div>
+      <div mb-3>
         <p text-gray text-sm mb-1>只读</p>
         <r-input value="pear" :max-length="20" show-count readonly />
       </div>
