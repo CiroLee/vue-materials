@@ -18,7 +18,7 @@
 | [resizableBox](src/components/resizableBox/components/resizableBox.vue)    | resizableBox 组件      |
 | [Input](src/components/Inputs/components/input.vue)                        | Input 组件             |
 | [Textarea](src/components/Inputs/components/textarea.vue)                  | Textarea 组件          |
-| [HighlightWord](src/components/HighlightWord/components/highlightWord.vue) | 文字高亮组件           |
+| [HighlightWord](src/components/highlightWord/components/highlightWord.vue) | 文字高亮组件           |
 
 ## 开发
 
