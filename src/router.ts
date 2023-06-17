@@ -9,6 +9,7 @@ const NumberAnimate = () => import('@/components/numberAnimate/index.vue');
 const Avatar = () => import('@/components/avatar/index.vue');
 const ResizableBox = () => import('@/components/resizableBox/index.vue');
 const InputsPage = () => import('@/components/inputs/index.vue');
+const HightLightWordPage = () => import('@/components/highlightWord/index.vue');
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -95,6 +96,15 @@ export const routes: Array<RouteRecordRaw> = [
         meta: {
           icon: 'input-method-line',
           name: 'inputs',
+        },
+      },
+      {
+        path: '/components/hightlight-word',
+        name: 'hightlight-word',
+        component: HightLightWordPage,
+        meta: {
+          icon: 'article-line',
+          name: 'hightlight-word',
         },
       },
     ],

@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="sidebar-footer" @click="myCollapsible = !myCollapsible">
-      <icon name="ri-arrow-left-s-line" size="18px" />
+      <icon name="arrow-left-s-line" size="18px" />
     </div>
   </div>
 </template>
@@ -114,7 +114,7 @@ $big-font-size: 28px;
   transition: all 0.3s ease-in-out;
   &.collapsible {
     width: 55px;
-    .sidebar-footer .icon {
+    .sidebar-footer .re-icon {
       transform: rotate(180deg);
     }
   }
